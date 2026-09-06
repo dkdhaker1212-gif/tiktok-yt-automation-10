@@ -17,8 +17,12 @@ VALID_UPLOAD_MODES = {
     "popular_split",   # slot1 newest, slot2 most-viewed (whole profile)  <- default
     "short_only",      # slot1 newest, slot2 newest
     "popular_only",    # slot1 most-viewed  (1/day channels)
+    "latest_popular",  # newest N by date, then most-viewed among those first
     "sequence",        # explicit ordered list + N-day gap
 }
+
+# how many of the most-recent uploads latest_popular considers before ranking by views
+LATEST_POPULAR_WINDOW = 30
 
 _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CHANNELS_YAML = os.path.join(_REPO_ROOT, "channels.yaml")
@@ -79,8 +83,8 @@ def _validate(ch: Channel) -> None:
             f"channel {ch.id}: upload_mode '{ch.upload_mode}' is not in the whitelist "
             f"{sorted(VALID_UPLOAD_MODES)}"
         )
-    if ch.videos_per_day not in (1, 2):
-        raise ValueError(f"channel {ch.id}: videos_per_day must be 1 or 2")
+    if ch.videos_per_day not in (1, 2, 3):
+        raise ValueError(f"channel {ch.id}: videos_per_day must be 1, 2 or 3")
     for slot in range(1, ch.videos_per_day + 1):
         if slot not in ch.slot_publish_times_utc:
             raise ValueError(

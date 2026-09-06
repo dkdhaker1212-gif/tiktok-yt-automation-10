@@ -10,7 +10,7 @@ channels:
     google_credentials_file: "credentials/channel_10_client_secret.json"
     oauth_token_file: "tokens/channel_10_token.json"
 
-    videos_per_day: 2
+    videos_per_day: 3
     description_footer: ""
     default_tags: [funny cats, cat shorts, cat chaos, funny animals, cats being weird,
                    crazy cat, cat fails, pets, funny pets, cute cats, viral cat,
@@ -20,21 +20,23 @@ channels:
     enabled: true
     max_retry_days: 7
     shorts_max_seconds: 180
-    upload_mode: popular_only             # always pick the most-viewed unposted video
+    upload_mode: latest_popular           # newest uploads first, most-viewed among them first
     max_download_candidates: 20
 
     use_ai_seo: true
     seo_language: "en"
     edit:
       enabled: true
-      zoom_crop_pct: 2.0
-      speed: 1.03
+      # 9:16 vertical kept as-is (Shorts). Tuned for quality: gentle retime,
+      # sharpen + light colour pop, near-lossless crf, no denoise softening.
+      zoom_crop_pct: 1.5
+      speed: 1.02
       hflip: false
       fade_seconds: 0.25
       sharpen: true
       denoise: false
-      saturation: 1.06
-      contrast: 1.05
+      saturation: 1.05
+      contrast: 1.04
       loudnorm: true
       volume_gain_db: 0.0
       blur_regions: []
@@ -57,6 +59,7 @@ channels:
         - "NOT AGAIN"
         - "PURE CHAOS"
 
-    slot_publish_times_utc:               # these ARE the cron fire times
-      1: "16:00"                          # 12:00 PM US Eastern (US midday scroll)
-      2: "23:00"                          # 7:00 PM US Eastern (US evening prime)
+    slot_publish_times_utc:               # these ARE the cron fire times (IST = UTC + 5:30)
+      1: "12:30"                          # 6:00 PM IST
+      2: "14:30"                          # 8:00 PM IST
+      3: "22:30"                          # 4:00 AM IST (next day)

@@ -65,6 +65,17 @@ def pick_candidates(channel: Channel, slot: int, entries: list[dict],
         return newest
     if mode == "popular_only":
         return most_viewed
+    if mode == "latest_popular":
+        # take the most-recent uploads, then rank those by views (fresh + viral);
+        # trailing = older stuff, still view-ranked, as a fallback when the
+        # recent window is exhausted.
+        from .config import LATEST_POPULAR_WINDOW
+        recent = newest[:LATEST_POPULAR_WINDOW]
+        recent_by_views = sorted(
+            recent, key=lambda e: e["view_count"] or 0, reverse=True)
+        recent_ids = {e["id"] for e in recent}
+        trailing = [e for e in most_viewed if e["id"] not in recent_ids]
+        return recent_by_views + trailing
     if mode == "sequence":
         order = {vid: i for i, vid in enumerate(channel.sequence_ids)}
         seq = [e for e in avail if e["id"] in order]

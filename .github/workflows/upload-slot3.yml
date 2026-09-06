@@ -1,8 +1,8 @@
-name: "Channel 10 - Daily Upload SLOT 2 (14:30 UTC / 8 PM IST)"
+name: "Channel 10 - Daily Upload SLOT 3 (22:30 UTC / 4 AM IST)"
 
 on:
   schedule:
-    - cron: "30 14 * * *"      # 14:30 UTC = 8:00 PM IST
+    - cron: "30 22 * * *"      # 22:30 UTC = 4:00 AM IST (next day)
   workflow_dispatch:
     inputs:
       channel:
@@ -104,7 +104,7 @@ jobs:
 
       - name: Run slot 1
         run: |
-          ARGS="--slot 2 --channel ${{ github.event.inputs.channel || 'channel_10' }}"
+          ARGS="--slot 3 --channel ${{ github.event.inputs.channel || 'channel_10' }}"
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
           if [ "${{ github.event.inputs.force }}" = "true" ]; then ARGS="$ARGS --force"; fi
           python run.py $ARGS
@@ -116,7 +116,7 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/channel_10.db
-          git commit -m "state: slot 2 run $(date -u +%FT%TZ)" || { echo "nothing to commit"; exit 0; }
+          git commit -m "state: slot 3 run $(date -u +%FT%TZ)" || { echo "nothing to commit"; exit 0; }
           for i in 1 2 3; do
             git fetch origin main && git rebase origin/main && git push origin HEAD:main && exit 0
             echo "push attempt $i failed; retrying"; sleep 5
@@ -127,7 +127,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: logs-slot2-${{ github.run_id }}
+          name: logs-slot3-${{ github.run_id }}
           path: logs/
           retention-days: 14
           if-no-files-found: ignore
