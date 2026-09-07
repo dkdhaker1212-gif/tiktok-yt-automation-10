@@ -10,7 +10,7 @@ channels:
     google_credentials_file: "credentials/channel_10_client_secret.json"
     oauth_token_file: "tokens/channel_10_token.json"
 
-    videos_per_day: 3
+    videos_per_day: 2
     description_footer: ""
     default_tags: [funny cats, cat shorts, cat chaos, funny animals, cats being weird,
                    crazy cat, cat fails, pets, funny pets, cute cats, viral cat,
@@ -65,6 +65,5 @@ channels:
         - "PURE CHAOS"
 
     slot_publish_times_utc:               # these ARE the cron fire times (IST = UTC + 5:30)
-      1: "12:30"                          # 6:00 PM IST
-      2: "14:30"                          # 8:00 PM IST
-      3: "15:30"                          # 9:00 PM IST
+      1: "14:30"                          # 8:00 PM IST
+      2: "17:00"                          # 10:30 PM IST
