@@ -17,7 +17,7 @@ channels:
                    cat compilation, cat moments, kitten, silly cat, cat behavior,
                    animals doing funny things, shorts, funny shorts, cat lovers]
     youtube_category_id: "15"             # 15 Pets & Animals
-    enabled: true
+    enabled: false                        # PAUSED 2026-09-18: no traction, stop posting (see memory)
     max_retry_days: 7
     shorts_max_seconds: 180
     min_video_seconds: 12                 # skip clips shorter than 12s
