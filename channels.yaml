@@ -4,6 +4,7 @@
 channels:
   - id: channel_10                        # unique; used in DB, logs, secret names
     tiktok_username: "bro.and.dickens"    # no @  -- chaotic / funny cat content (a guy + his cat "Dickens")
+    tiktok_username_backup: "funny.fuls"  # no @ -- emergency-only fallback, used automatically if the primary source runs dry or every candidate it offers fails to post. 1.4M followers, general funny/animal compilation account, no YouTube found.
     youtube_channel_name: "Cat Chaos Lab"
     owner_email: "dkdhaker00011@gmail.com"
 
