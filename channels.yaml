@@ -3,8 +3,8 @@
 
 channels:
   - id: channel_10                        # unique; used in DB, logs, secret names
-    tiktok_username: "funny.fuls"         # no @  -- general funny/animal compilation (includes cats). 1.4M followers / 27.7M likes, no YouTube found (only 1-8 sub dead channels). Promoted to primary 2026-09-30: bro.and.dickens was getting ~0 views after weeks, moved to backup. NOTE: broader than pure-cat content -- content may drift beyond cats, watch it and consider a rebrand if the mix skews too general.
-    tiktok_username_backup: "bro.and.dickens"  # no @ -- emergency-only fallback. Chaotic/funny cat content (a guy + his cat "Dickens").
+    tiktok_username: "funny.petcat"  # no @ -- 299K followers / 24.5M likes, cat-only compilation; same-handle YT only 2.1K subs/7 videos. Promoted 2026-10-25: funny.fuls drifted off-cat and gave ~5 views/video, moved to backup.
+    tiktok_username_backup: "funny.fuls"  # no @ -- emergency fallback: previous primary (general funny, 1.4M)
     youtube_channel_name: "Cat Chaos Lab"
     owner_email: "dkdhaker00011@gmail.com"
 
