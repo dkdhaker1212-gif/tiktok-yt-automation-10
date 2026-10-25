@@ -4,7 +4,7 @@
 channels:
   - id: channel_10                        # unique; used in DB, logs, secret names
     tiktok_username: "funny.petcat"  # no @ -- 299K followers / 24.5M likes, cat-only compilation; same-handle YT only 2.1K subs/7 videos. Promoted 2026-10-25: funny.fuls drifted off-cat and gave ~5 views/video, moved to backup.
-    tiktok_username_backup: "funny.fuls"  # no @ -- emergency fallback: previous primary (general funny, 1.4M)
+    tiktok_username_backup: "bbykitty38"  # no @ -- emergency fallback: 115.7K followers / 3.7M likes, cat-only; no YT channel found (checked 2026-10-25 via TikTok Explore). funny.fuls dropped (drifted off-cat, ~5 views/video).
     youtube_channel_name: "Cat Chaos Lab"
     owner_email: "dkdhaker00011@gmail.com"
 
